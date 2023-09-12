@@ -1,2 +1,1 @@
-# typescript-monorepo-template
-TypeScript Monorepo Template
+# TypeScript Monorepo Template
