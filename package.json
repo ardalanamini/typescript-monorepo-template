@@ -1,0 +1,19 @@
+{
+  "name": "@organization/typescript-monorepo-template",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TypeScript Monorepo Template",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@8.7.5",
+  "engines": {
+    "node": ">= 18.17.1",
+    "pnpm": ">= 8.7.5"
+  },
+  "devDependencies": {}
+}
