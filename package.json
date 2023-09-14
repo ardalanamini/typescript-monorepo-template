@@ -4,6 +4,7 @@
   "private": true,
   "description": "TypeScript Monorepo Template",
   "scripts": {
+    "build": "pnpm -r build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "workspaces": [
@@ -15,5 +16,7 @@
     "node": ">= 18.17.1",
     "pnpm": ">= 8.7.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "5.2.2"
+  }
 }
