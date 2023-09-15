@@ -5,7 +5,8 @@
   "description": "TypeScript Monorepo Template",
   "scripts": {
     "build": "pnpm -r build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "is-ci || husky install"
   },
   "workspaces": [
     "apps/*",
@@ -17,6 +18,11 @@
     "pnpm": ">= 8.7.5"
   },
   "devDependencies": {
+    "@commitlint/cli": "17.7.1",
+    "@commitlint/config-conventional": "17.7.0",
+    "@types/node": "20.6.1",
+    "husky": "8.0.3",
+    "is-ci": "3.0.1",
     "typescript": "5.2.2"
   }
 }
