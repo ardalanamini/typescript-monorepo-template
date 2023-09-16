@@ -5,6 +5,8 @@
   "description": "TypeScript Monorepo Template",
   "scripts": {
     "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "is-ci || husky install"
   },
@@ -21,6 +23,12 @@
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
     "@types/node": "20.6.1",
+    "@typescript-eslint/eslint-plugin": "6.7.0",
+    "@typescript-eslint/parser": "6.7.0",
+    "eslint": "8.49.0",
+    "eslint-config-noir": "1.5.2",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-import": "2.28.1",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "typescript": "5.2.2"

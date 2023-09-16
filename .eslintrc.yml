@@ -1,0 +1,11 @@
+root: true
+env :
+  es2022: true
+  node: true
+extends: noir/all
+overrides: []
+parserOptions:
+  project: ./tsconfig.json
+  ecmaVersion: latest
+  sourceType: module
+rules: {}
