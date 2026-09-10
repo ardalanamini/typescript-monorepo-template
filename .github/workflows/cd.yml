@@ -1,0 +1,35 @@
+name: CD
+
+on:
+  push:
+    tags:
+      - v*[0-9].*[0-9].*[0-9]
+
+jobs:
+  release:
+    name: Create Release
+
+    concurrency: github-release
+
+    environment:
+      name: release
+      url: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}
+
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Changelog
+        uses: ardalanamini/auto-changelog@v5
+        id: changelog
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
+        with:
+          body: |
+            ${{ steps.changelog.outputs.changelog }}
+          prerelease: ${{ steps.changelog.outputs.prerelease }}
