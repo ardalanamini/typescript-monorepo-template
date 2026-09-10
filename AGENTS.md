@@ -1,6 +1,16 @@
-# typescript-monorepo-template Agents Guidelines
+# Agents Guidelines
 
-## Linting and formatting
+This document outlines the guidelines that must be followed by the agents working on this project.
 
-- After making code changes, run `pnpm lint:fix`.
-- Before finishing, run `pnpm lint --deny-warnings --format=agent`.
+## Code changes
+
+This section outlines the steps to take in case of making code changes.
+
+### After making code changes
+
+- Run `pnpm lint:fix --format=agent`.
+
+### Before considering the task finished
+
+- Run `pnpm lint:fix --deny-warning --format=agent` and ensure the linter does not report any errors.
+- Run `pnpm test:coverage --reporter=minimal` and ensure the tests pass and coverage is at least 80%.

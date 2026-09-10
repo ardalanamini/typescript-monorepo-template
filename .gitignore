@@ -133,3 +133,6 @@ dist
 .idea/
 .fleet/
 .vscode/
+
+# Vitest reports and artifacts
+.vitest/
