@@ -1,1 +1,22 @@
-{}
+{
+  "languages": {
+    "TypeScript": {
+      "language_servers": [
+        "!eslint",
+        "!vtsls",
+        "!typescript-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
+    "TSX": {
+      "language_servers": [
+        "!eslint",
+        "!vtsls",
+        "!typescript-language-server",
+        "typescript-ls",
+        "...",
+      ],
+    },
+  },
+}

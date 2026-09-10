@@ -8,3 +8,8 @@ allowBuilds:
   '@parcel/watcher': false
   lefthook: false
   nx: false
+  unrs-resolver: false
+
+minimumReleaseAgeExclude:
+  - oxlint-config-noir@1.0.7
+  - knip@6.35.1
