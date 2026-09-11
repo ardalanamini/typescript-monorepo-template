@@ -136,3 +136,12 @@ dist
 
 # Vitest reports and artifacts
 .vitest/
+
+# Nx build artifacts
+.nx/cache
+.nx/workspace-data
+.nx/migrate-runs
+vitest.config.*.timestamp*
+.nx/polygraph
+.claude/worktrees
+.claude/settings.local.json

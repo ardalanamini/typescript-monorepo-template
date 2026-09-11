@@ -1,0 +1,44 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "analytics": false,
+  "namedInputs": {
+    "typescript-config": [
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/tsconfig.build.json",
+      "{projectRoot}/tsconfig.json",
+      "{projectRoot}/tsconfig.build.json"
+    ],
+    "oxlint-config": ["{workspaceRoot}/oxlint.config.ts"],
+    "vitest-config": [
+      "{workspaceRoot}/vite.config.ts",
+      "{projectRoot}/vite.config.ts"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["typescript-config", "{projectRoot}/src/**/*"],
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "lint": {
+      "cache": true,
+      "inputs": ["oxlint-config", "typescript-config", "{projectRoot}/src/**/*"]
+    },
+    "lint:fix": {
+      "cache": true,
+      "inputs": ["oxlint-config", "typescript-config", "{projectRoot}/src/**/*"]
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": ["^test"],
+      "inputs": ["vitest-config", "typescript-config", "{projectRoot}/src/**/*"]
+    },
+    "test:coverage": {
+      "cache": true,
+      "dependsOn": ["^test:coverage"],
+      "inputs": ["vitest-config", "typescript-config", "{projectRoot}/src/**/*"],
+      "outputs": ["{projectRoot}/coverage"]
+    }
+  }
+}

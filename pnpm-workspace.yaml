@@ -12,4 +12,3 @@ allowBuilds:
 
 minimumReleaseAgeExclude:
   - oxlint-config-noir@1.0.7
-  - knip@6.35.1
