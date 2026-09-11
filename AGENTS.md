@@ -12,5 +12,5 @@ This section outlines the steps to take in case of making code changes.
 
 ### Before considering the task finished
 
-- Run `pnpm lint:fix --deny-warning --format=agent` and ensure the linter does not report any errors.
+- Run `pnpm lint:fix --deny-warnings --format=agent` and ensure the linter does not report any errors.
 - Run `pnpm test:coverage --reporter=minimal` and ensure the tests pass and coverage is at least 80%.
