@@ -9,7 +9,7 @@
       "{projectRoot}/tsconfig.build.json"
     ],
     "oxlint-config": ["{workspaceRoot}/oxlint.config.ts"],
-    "vitest-config": [
+    "vite-config": [
       "{workspaceRoot}/vite.config.ts",
       "{projectRoot}/vite.config.ts"
     ]
@@ -32,12 +32,12 @@
     "test": {
       "cache": true,
       "dependsOn": ["^test"],
-      "inputs": ["vitest-config", "typescript-config", "{projectRoot}/src/**/*"]
+      "inputs": ["vite-config", "typescript-config", "{projectRoot}/src/**/*"]
     },
     "test:coverage": {
       "cache": true,
       "dependsOn": ["^test:coverage"],
-      "inputs": ["vitest-config", "typescript-config", "{projectRoot}/src/**/*"],
+      "inputs": ["vite-config", "typescript-config", "{projectRoot}/src/**/*"],
       "outputs": ["{projectRoot}/coverage"]
     }
   }
