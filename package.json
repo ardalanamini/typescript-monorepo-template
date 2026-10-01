@@ -30,7 +30,7 @@
     "@vitest/coverage-v8": "5.0.0",
     "is-ci": "4.1.0",
     "knip": "6.38.0",
-    "lefthook": "2.1.12",
+    "lefthook": "2.1.14",
     "nx": "23.2.1",
     "oxlint": "1.82.0",
     "oxlint-config-noir": "1.0.7",
