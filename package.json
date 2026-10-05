@@ -21,21 +21,25 @@
     "knip": "knip"
   },
   "type": "module",
-  "packageManager": "pnpm@12.3.4",
+  "packageManager": "pnpm@12.9.1",
   "devDependencies": {
-    "@commitlint/cli": "21.2.2",
-    "@commitlint/config-conventional": "21.2.2",
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
     "@commitlint/types": "21.2.3",
-    "@types/node": "26.6.2",
-    "@vitest/coverage-v8": "5.0.0",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "@types/node": "26.6.4",
+    "@vitest/coverage-v8": "5.0.3",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-perfectionist": "5.11.0",
+    "eslint-plugin-unicorn": "74.0.0",
     "is-ci": "4.1.0",
-    "knip": "6.38.0",
-    "lefthook": "2.1.12",
+    "knip": "6.39.0",
+    "lefthook": "2.1.16",
     "nx": "23.2.1",
-    "oxlint": "1.82.0",
+    "oxlint": "1.86.0",
     "oxlint-config-noir": "1.0.7",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2003",
     "typescript": "7.0.2",
-    "vitest": "5.0.0"
+    "vitest": "5.0.3"
   }
 }

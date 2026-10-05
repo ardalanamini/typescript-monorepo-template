@@ -1,14 +1,16 @@
 injectWorkspacePackages: true
 
+autoDedupe: true
+
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+
 packages:
   - apps/*
   - packages/*
 
 allowBuilds:
-  '@parcel/watcher': false
+  "@parcel/watcher": false
   lefthook: false
   nx: false
   unrs-resolver: false
-
-minimumReleaseAgeExclude:
-  - oxlint-config-noir@1.0.7
