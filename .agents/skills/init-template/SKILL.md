@@ -15,6 +15,7 @@ Use values supplied by the user. Inspect `git remote -v` for the destination rep
 - Root npm package name, scoped or unscoped. Do not assume the npm scope equals the GitHub owner.
 - Destination repository URL or GitHub owner/repository.
 - GitHub users or teams for CODEOWNERS, or whether to remove the template ownership rule.
+- Whether to keep or remove the optional Codecov integration, including its commented CI example. Ask explicitly unless the user has already supplied this choice; a commented step is not permission to delete it. While awaiting an answer, preserve it and continue independent initialization work.
 
 A repository slug can supply a default display name; a description can simply use that name if none is provided. Check npm name syntax before editing manifests. Never invent an owner or retain a template owner as a default.
 
@@ -28,11 +29,25 @@ Inspect the current files before editing. The original values and locations are:
 | `package.json` | `description`, `repository.url`, `bugs.url` | Set the project description and destination repository/issue URLs, preserving the repository object format. |
 | `README.md` | `TypeScript Monorepo Template` | Set the title and add the project description; retain useful project guidance, including the AGENTS.md link. |
 | `CODEOWNERS` | `* @ardalanamini` | Replace with the chosen owners, or remove this template rule if requested; delete the file only if nothing useful remains. |
-| `.github/workflows/ci.yml` | Commented Codecov example with `typescript-monorepo-org/typescript-monorepo-template` | Remove the unused commented example; if the user has enabled Codecov, update its repository identity instead. |
+| `.github/workflows/ci.yml` | Codecov upload step (initially commented) with `typescript-monorepo-org/typescript-monorepo-template` | Apply the user's Codecov choice as described below. |
 
 Search tracked and non-ignored project files, including hidden files, for these old identifiers and title. Inspect matches in any added workspace manifests, internal imports, dependency names, and Nx project references; update related names consistently. Regenerate the lockfile with the repository's pinned pnpm version if dependency metadata changes.
 
 Do not globally replace `ardalanamini` or the word `template`: `ardalanamini/auto-changelog@v5` in the release workflow is a third-party action, and dependency names containing `template` are not project branding. Preserve working tooling, CI/CD, workspace structure, AGENTS.md, and any license or attribution notices. Do not rename the checkout directory, change Git remotes/history, create or rename a hosted repository, commit, or push unless separately requested.
+
+## Configure the chosen Codecov integration
+
+If the user chooses **keep**:
+
+- Retain the upload step after `pnpm test:coverage`. Preserve its enabled or commented state unless the user asks to enable or disable it; update commented YAML too.
+- Replace the template `slug` with `${{ github.repository }}` for the repository running CI, or the explicitly chosen destination `owner/repository` if uploads intentionally target a different repository. The slug is not an npm package name or scope.
+- Check the [official Codecov action documentation](https://github.com/codecov/codecov-action) for current supported inputs and action versions before making compatibility changes. Preserve a supported existing version and authentication method.
+- Inspect the workspace test/coverage configuration. Ensure it emits a Codecov-supported report (for example, LCOV; add `lcov` to the existing Vitest coverage reporters if necessary, preserving other reporters). Let the uploader discover reports recursively from the repository root so it includes tested apps and packages. If existing `files`, `directory`, or `disable_search` inputs restrict discovery, update them to include the actual report locations across the monorepo; do not assume a single root `coverage` directory or pass unverified glob patterns as `files`.
+- For token authentication, retain `${{ secrets.CODECOV_TOKEN }}` and tell the user to configure the destination repository's Codecov token as a GitHub Actions secret. Preserve existing OIDC authentication and its required `id-token: write` permission. Report any required external setup without claiming it has been completed.
+
+If the user chooses **remove**, delete the Codecov upload step or commented example and remove only Codecov-specific configuration and documentation. Keep coverage generation, coverage thresholds, and tests.
+
+Verify that the resulting workflow matches the user's choice and contains no template Codecov slug. Do not finish initialization or remove this skill while the choice is unanswered.
 
 ## Clean up and verify
 
