@@ -31,7 +31,7 @@ Inspect the current files before editing. The original values and locations are:
 | `CODEOWNERS` | `* @ardalanamini` | Replace with the chosen owners, or remove this template rule if requested; delete the file only if nothing useful remains. |
 | `.github/workflows/ci.yml` | Codecov upload step (initially commented) with `typescript-monorepo-org/typescript-monorepo-template` | Apply the user's Codecov choice as described below. |
 
-Search tracked and non-ignored project files, including hidden files, for these old identifiers and title. Inspect matches in any added workspace manifests, internal imports, dependency names, and Nx project references; update related names consistently. Regenerate the lockfile with the repository's pinned pnpm version if dependency metadata changes.
+Search tracked and non-ignored project files, including hidden files, for these old identifiers and title. Inspect matches in any added workspace manifests, internal imports, and dependency names; update related names consistently. Regenerate the lockfile with the repository's pinned pnpm version if dependency metadata changes.
 
 Do not globally replace `ardalanamini` or the word `template`: `ardalanamini/auto-changelog@v5` in the release workflow is a third-party action, and dependency names containing `template` are not project branding. Preserve working tooling, CI/CD, workspace structure, AGENTS.md, and any license or attribution notices. Do not rename the checkout directory, change Git remotes/history, create or rename a hosted repository, commit, or push unless separately requested.
 
@@ -60,7 +60,7 @@ pnpm lint:fix --deny-warnings --format=agent
 pnpm test:coverage --reporter=minimal
 ```
 
-Inspect the actual results, including the required 80% coverage. This template may have no workspace projects or tests yet: an Nx command reporting no targets is not evidence of test coverage. Report that limitation explicitly; do not invent tests or claim coverage passed. If checks fail, keep this skill available for resuming initialization and report the blocker.
+Inspect the actual results, including the required 80% coverage. This template may have no workspace packages or tests yet: a recursive pnpm command reporting no matching projects is not evidence of test coverage. Report that limitation explicitly; do not invent tests or claim coverage passed. If checks fail, keep this skill available for resuming initialization and report the blocker.
 
 After the applicable checks succeed, remove this skill's own directory, `.agents/skills/init-template`, as the final cleanup step. Do not delete sibling skills or the entire `.agents` directory. Inspect the final diff and search again for old project identifiers and dangling references to this skill, excluding Git internals, dependencies, caches, and generated artifacts. Explain any intentionally retained matches.
 

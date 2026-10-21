@@ -11,14 +11,14 @@
     "url": "https://github.com/typescript-monorepo-org/typescript-monorepo-template/issues"
   },
   "scripts": {
-    "build": "nx run-many -t build",
-    "lint": "nx run-many -t lint",
-    "lint:fix": "nx run-many -t lint:fix",
-    "test": "nx run-many -t test",
-    "test:coverage": "nx run-many -t test:coverage",
     "typecheck": "tsc --noEmit",
-    "prepare": "is-ci || lefthook install",
-    "knip": "knip"
+    "build": "pnpm -r run build",
+    "lint": "oxlint",
+    "lint:fix": "pnpm lint --fix",
+    "test": "pnpm -r run test",
+    "test:coverage": "pnpm -r run test:coverage",
+    "knip": "knip",
+    "prepare": "is-ci || lefthook install"
   },
   "type": "module",
   "packageManager": "pnpm@12.14.0",
@@ -31,7 +31,6 @@
     "is-ci": "4.1.0",
     "knip": "6.42.1",
     "lefthook": "2.2.2",
-    "nx": "23.3.0",
     "oxlint": "1.89.0",
     "oxlint-config-noir": "1.0.8",
     "oxlint-tsgolint": "7.0.2004",
