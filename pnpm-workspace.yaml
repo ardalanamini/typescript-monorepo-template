@@ -4,10 +4,13 @@ packages:
 
 injectWorkspacePackages: true
 
-autoDedupe: true
-
 minimumReleaseAge: 1440
 minimumReleaseAgeStrict: true
+
+autoDedupe: true
+
+lockfile:
+  includeResolutionSettings: true
 
 allowBuilds:
   "@parcel/watcher": false
