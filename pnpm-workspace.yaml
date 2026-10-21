@@ -1,13 +1,13 @@
+packages:
+  - apps/*
+  - packages/*
+
 injectWorkspacePackages: true
 
 autoDedupe: true
 
 minimumReleaseAge: 1440
 minimumReleaseAgeStrict: true
-
-packages:
-  - apps/*
-  - packages/*
 
 allowBuilds:
   "@parcel/watcher": false
