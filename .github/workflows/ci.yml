@@ -13,23 +13,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .node-version
-
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm with runtime
+        uses: pnpm/setup@v3
         with:
           cache: true
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+          require-lockfile: true
 
       - name: Build the project
         run: pnpm build
@@ -39,23 +32,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .node-version
-
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm with runtime
+        uses: pnpm/setup@v3
         with:
           cache: true
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+          require-lockfile: true
 
       - name: Type check the project
         run: pnpm typecheck
@@ -65,23 +51,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .node-version
-
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm with runtime
+        uses: pnpm/setup@v3
         with:
           cache: true
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+          require-lockfile: true
 
       - name: Check code styles
         run: pnpm lint
@@ -91,25 +70,18 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    timeout-minutes: 10
 
     continue-on-error: true
 
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .node-version
-
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm with runtime
+        uses: pnpm/setup@v3
         with:
           cache: true
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+          require-lockfile: true
 
       - name: Check dead code/dependency
         run: pnpm knip
@@ -119,23 +91,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v7
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version-file: .node-version
-
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm with runtime
+        uses: pnpm/setup@v3
         with:
           cache: true
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+          require-lockfile: true
 
       - name: Run unit tests
         run: pnpm test:coverage
