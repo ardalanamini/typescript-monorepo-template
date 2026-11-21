@@ -11,30 +11,32 @@
     "url": "https://github.com/typescript-monorepo-org/typescript-monorepo-template/issues"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsrs --noEmit",
     "build": "pnpm -r run build",
     "lint": "oxlint",
     "lint:fix": "pnpm lint --fix",
+    "lint:typecheck": "oxlint --type-check",
+    "lint:typecheck:fix": "pnpm lint:typecheck --fix",
     "test": "pnpm -r run test",
     "test:coverage": "pnpm -r run test:coverage",
     "knip": "knip",
     "prepare": "is-ci || lefthook install"
   },
   "type": "module",
-  "packageManager": "pnpm@12.18.0",
+  "packageManager": "pnpm@12.22.0",
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@commitlint/types": "21.2.3",
     "@types/node": "26.6.6",
-    "@vitest/coverage-v8": "5.1.0",
+    "@vitest/coverage-v8": "5.1.1",
     "is-ci": "4.1.0",
-    "knip": "6.44.1",
+    "knip": "6.46.1",
     "lefthook": "2.2.2",
-    "oxlint": "1.91.0",
-    "oxlint-config-noir": "1.0.8",
-    "oxlint-tsgolint": "7.0.2005",
+    "oxlint": "1.94.0",
+    "oxlint-config-noir": "1.0.9",
+    "tsrs": "7.1.0-beta.tsrs3",
     "typescript": "7.0.2",
-    "vitest": "5.1.0"
+    "vitest": "5.1.1"
   }
 }

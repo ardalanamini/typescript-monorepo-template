@@ -13,7 +13,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v7
@@ -27,31 +27,12 @@ jobs:
       - name: Build the project
         run: pnpm build
 
-  typecheck:
-    name: Type Check
-
-    runs-on: ubuntu-latest
-
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v7
-
-      - name: Setup pnpm with runtime
-        uses: pnpm/setup@v3
-        with:
-          cache: true
-          require-lockfile: true
-
-      - name: Type check the project
-        run: pnpm typecheck
-
   lint:
-    name: Lint
+    name: Lint & Type Check
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v7
@@ -62,15 +43,15 @@ jobs:
           cache: true
           require-lockfile: true
 
-      - name: Check code styles
-        run: pnpm lint
+      - name: Check code styles and types
+        run: pnpm lint:typecheck
 
   knip:
     name: Knip
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     continue-on-error: true
 
